@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#198754">
+    <meta name="theme-color" content="#146c43">
     
-    <title>Paket Wisata Batu Outbound & Offroad Jeep Terbaik | BATU-OFFROAD</title>
-    <meta name="description" content="Provider resmi paket wisata Outbound Batu, Fun Offroad Jeep, dan Family Gathering. Fasilitas lengkap, pemandu profesional, lokasi sejuk.">
-    
+    <title>Paket Wisata Batu Outbound & Offroad Jeep Terbaik 2024 | BATU-OFFROAD</title>
+    <meta name="description" content="Booking paket wisata Outbound Batu, Fun Offroad Jeep, dan Family Gathering harga terbaik. Fasilitas lengkap, aman, pemandu profesional. Pesan sekarang!">
+    <meta name="keywords" content="outbound batu, offroad batu, sewa jeep batu, paket gathering malang, wisata batu malang, team building jatim">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.batuadventure.com/">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="aset/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="aset/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="aset/favicon/favicon-16x16.png">
+    <link rel="manifest" href="aset/favicon/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-    <link rel="preload" as="image" href="aset/mobol.webp">
+    <link rel="preload" as="image" href="aset/mobol.webp" fetchpriority="high">
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Volkhov:wght@700&display=swap" rel="stylesheet">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" media="print" onload="this.media='all'">
@@ -27,7 +34,9 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "BATU-OFFROAD Outbound & Offroad",
-        "image": "https://www.batuadventure.com/logo.png",
+        "image": "https://www.batuadventure.com/aset/mobol.webp",
+        "description": "Penyedia layanan paket wisata Outbound, Fun Offroad Jeep, dan Family Gathering terbaik di Kota Batu, Malang.",
+        "url": "https://www.batuadventure.com",
         "priceRange": "IDR 150.000 - IDR 1.000.000",
         "telephone": "+6281234567890",
         "address": {
@@ -37,6 +46,32 @@
           "addressRegion": "Jawa Timur",
           "postalCode": "65316",
           "addressCountry": "ID"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-7.8860",
+          "longitude": "112.5255"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "124",
+          "bestRating": "5",
+          "worstRating": "1"
         }
       },
       {
@@ -45,22 +80,26 @@
         "mainEntity": [{
             "@type": "Question",
             "name": "Apakah rute offroad aman untuk pemula?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ya, kami menyediakan jalur Fun Offroad yang aman untuk keluarga dan pemula dengan driver profesional." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Ya, kami menyediakan jalur Fun Offroad yang aman untuk keluarga dan pemula dengan driver profesional dan armada Jeep yang terawat." }
+        },
+        {
+            "@type": "Question",
+            "name": "Berapa harga paket offroad di Batu?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Harga paket offroad dimulai dari IDR 250.000 per orang untuk rute short, sudah termasuk tiket wisata dan dokumentasi." }
         }]
       }
     ]
-    </script>
+    </script>>
 
     <style>
-        /* --- CUSTOM VARIABLES & RESET --- */
+        /* --- VARIABLES --- */
         :root {
             --primary-color: #198754; 
             --primary-dark: #146c43;
-            /* 5. AKSESIBILITAS: Warna subtitle dipergelap agar kontras cukup di background putih */
-            --text-subtitle: #146c43; 
+            --text-subtitle: #146c43; /* Hijau gelap untuk kontras subtitle */
             --accent-color: #fd7e14;
             --text-dark: #212529;
-            --text-muted: #495057; /* Dipergelap dari #6c757d agar lolos rasio kontras */
+            --text-muted: #495057; /* Abu gelap untuk kontras paragraf */
             --bg-light: #f8f9fa;
             --font-main: 'Plus Jakarta Sans', sans-serif;
             --font-heading: 'Volkhov', serif;
@@ -78,13 +117,13 @@
             font-weight: 700;
         }
 
-        /* --- UTILITIES --- */
+        /* --- UTILITIES & ACCESSIBILITY --- */
         .section-padding { padding: 80px 0; }
         @media (max-width: 768px) {
             .section-padding { padding: 50px 0; }
         }
 
-        /* 6. AKSESIBILITAS: Fokus Indikator untuk Navigasi Keyboard */
+        /* Fokus Keyboard yang Jelas */
         a:focus, button:focus {
             outline: 3px solid var(--accent-color);
             outline-offset: 2px;
@@ -96,8 +135,8 @@
         }
         .section-header .subtitle {
             display: block;
-            color: var(--text-subtitle); /* Fix Contrast Issue */
-            font-weight: 700; /* Ditebalkan agar lebih terbaca */
+            color: var(--text-subtitle);
+            font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
@@ -114,25 +153,25 @@
         /* --- NAVBAR --- */
         .navbar {
             padding: 0.8rem 0;
-            background: rgba(255, 255, 255, 0.98); /* Sedikit lebih solid untuk performa paint */
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        /* 7. AKSESIBILITAS: Target Sentuh Mobile (48px) */
+        /* Target Sentuh Mobile Diperbesar */
         .nav-link {
             font-weight: 600;
             color: var(--text-dark) !important;
             margin: 0 5px;
-            padding: 12px 10px !important; /* Menambah area sentuh */
+            padding: 12px 15px !important; /* Area sentuh lebih nyaman */
             transition: color 0.3s;
         }
         .nav-link:hover, .nav-link.active {
             color: var(--primary-color) !important;
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (DI PERBAIKI WARNANYA) --- */
         .hero {
             position: relative;
-            background-color: #333; /* Fallback color sebelum gambar load */
+            background-color: #212529; /* Fallback gelap */
             background-image: url('aset/mobol.webp');
             background-repeat: no-repeat;
             background-position: center center;
@@ -141,11 +180,8 @@
             min-height: 600px;
             display: flex;
             align-items: center;
-            /* Matikan fixed background di mobile total untuk performa scrolling */
             background-attachment: scroll; 
         }
-        
-        /* Media query desktop only untuk parallax */
         @media (min-width: 992px) {
             .hero { background-attachment: fixed; }
         }
@@ -153,14 +189,14 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            /* Gradient dipergelap sedikit agar teks putih pasti kontras (Accessibility) */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, rgba(25, 135, 84, 0.9) 100%);
+            /* PERBAIKAN: Mengurangi dominasi warna hijau. 
+               Menggunakan gradien hitam/gelap netral agar teks putih lebih kontras dan elegan. */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.85) 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            /* Hapus animasi fadeInUp yang kompleks jika ingin LCP 100%, tapi kita simpan simple fade */
             opacity: 0;
             animation: simpleFade 0.8s ease-out forwards;
         }
@@ -172,18 +208,16 @@
         @media (max-width: 768px) {
             .hero {
                 padding-top: 60px;
-                background-position: 50% 100%; /* Anchor gambar ke bawah */
+                background-position: 50% 100%;
             }
             .hero h1 { 
                 font-size: 2.2rem !important; 
                 line-height: 1.2;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Perkuat shadow untuk kontras */
             }
             .hero p.lead { 
                 font-size: 1.1rem !important; 
-                color: #ffffff !important; /* Pastikan putih solid */
+                color: #ffffff !important;
                 opacity: 1 !important;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
             }
             .hero-buttons {
                 flex-direction: column;
@@ -191,19 +225,18 @@
             }
             .hero-buttons .btn {
                 width: 100%;
-                padding: 14px 0; /* Target sentuh */
+                padding: 14px 0; /* Target sentuh tombol mobile */
                 font-size: 1.1rem;
             }
         }
 
-        /* --- CARDS --- */
+        /* --- CARDS & GENERAL --- */
         .card-hover {
-            transition: transform 0.2s ease; /* Percepat durasi animasi untuk responsivitas */
+            transition: transform 0.2s ease;
             border: none;
             border-radius: 12px;
             overflow: hidden;
         }
-        /* Hapus shadow berat pada hover untuk performa repainting */
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
@@ -219,12 +252,10 @@
             margin-bottom: 1.5rem;
         }
 
-        /* --- FOOTER & LINKS --- */
-        footer a.hover-white:hover { color: white !important; }
-        /* Target sentuh footer */
+        /* Footer links touch target */
         footer ul li a {
             display: inline-block;
-            padding: 8px 0; 
+            padding: 10px 0; 
         }
 
         /* --- FAB --- */
@@ -233,7 +264,7 @@
             display: flex; flex-direction: column; gap: 15px;
         }
         .btn-fab {
-            width: 55px; height: 55px; /* Perbesar target sentuh */
+            width: 60px; height: 60px; /* Target sentuh lebih besar lagi */
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             color: white; font-size: 1.8rem;
@@ -241,16 +272,10 @@
             text-decoration: none;
         }
         .btn-wa { background: #25D366; }
-        .btn-top { background: var(--primary-color); opacity: 0; visibility: hidden; transition: 0.3s; }
+        .btn-top { background: var(--primary-dark); opacity: 0; visibility: hidden; transition: 0.3s; }
         .btn-top.show { opacity: 1; visibility: visible; }
 
         img { max-width: 100%; height: auto; }
-        
-        /* Helper untuk Kontras Tinggi (Accessibility) */
-        .text-white-high-contrast {
-            color: #ffffff !important;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
@@ -260,7 +285,7 @@
             <a class="navbar-brand fw-bold fs-4 text-success" href="#">
                 <i class="bi bi-tree-fill" aria-hidden="true"></i> BATU-OFFROAD
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
@@ -272,7 +297,7 @@
                     <li class="nav-item"><a class="nav-link" href="#gallery">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="#news">Berita</a></li>
                 </ul>
-                <a href="#contact" class="btn btn-success rounded-pill px-4 fw-bold ms-lg-3 shadow-sm py-2">
+                <a href="#contact" class="btn btn-success rounded-pill px-4 fw-bold ms-lg-3 shadow-sm py-3 py-lg-2">
                     Booking <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
             </div>
@@ -288,9 +313,9 @@
                     <i class="bi bi-trophy-fill me-1" aria-hidden="true"></i> #1 Di Kota Batu
                 </span>
 
-                <h1 class="mb-3 text-white">Jelajahi Alam Kota Batu dengan Sensasi Berbeda</h1>
+                <h1 class="mb-3 text-white fw-bolder">Jelajahi Alam Kota Batu dengan Sensasi Berbeda</h1>
                 
-                <p class="lead mb-5 text-white fw-medium">
+                <p class="lead mb-5 text-white fw-medium opacity-100">
                     Spesialis Outbound Training, Fun Offroad Jeep, dan Wisata Petualangan untuk Corporate & Keluarga.
                 </p>
 
@@ -313,7 +338,7 @@
             <div class="row align-items-center gx-lg-5">
                 <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2">
                     <div class="position-relative">
-                        <img src="aset/Pemandanganpuncakgunung.webp" alt="Tim Outbound Batu sedang beraktivitas" class="img-fluid rounded-4 shadow" width="600" height="450" loading="lazy">
+                        <img src="aset/Pemandanganpuncakgunung.webp" alt="Tim Outbound Batu sedang beraktivitas di gunung" class="img-fluid rounded-4 shadow" width="600" height="450" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -387,8 +412,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="fw-bold mb-3">Rencanakan Gathering Kantor Anda Sekarang!</h2>
-                    <p class="mb-4 fs-5 text-white">Dapatkan penawaran harga spesial untuk rombongan minimal 30 pax. Konsultasi gratis jadwal dan rundown.</p>
-                    <a href="https://wa.me/6281234567890" class="btn btn-warning btn-lg rounded-pill fw-bold shadow text-dark">Chat WhatsApp Admin</a>
+                    <p class="mb-4 fs-5 text-white opacity-100">Dapatkan penawaran harga spesial untuk rombongan minimal 30 pax. Konsultasi gratis jadwal dan rundown.</p>
+                    <a href="https://wa.me/6281234567890" class="btn btn-warning btn-lg rounded-pill fw-bold shadow text-dark py-3 px-5">Chat WhatsApp Admin</a>
                 </div>
             </div>
         </div>
@@ -416,7 +441,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Tiket Masuk Wisata</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Dokumentasi Standar</li>
                             </ul>
-                            <a href="#contact" class="btn btn-outline-success w-100 rounded-pill fw-bold">Pilih Paket</a>
+                            <a href="#contact" class="btn btn-outline-success w-100 rounded-pill fw-bold py-3">Pilih Paket</a>
                         </div>
                     </div>
                 </div>
@@ -437,7 +462,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Coffee Break 1x</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Trainer & Fasilitator</li>
                             </ul>
-                            <a href="#contact" class="btn btn-success w-100 rounded-pill fw-bold shadow">Pilih Paket</a>
+                            <a href="#contact" class="btn btn-success w-100 rounded-pill fw-bold shadow py-3">Pilih Paket</a>
                         </div>
                     </div>
                 </div>
@@ -456,7 +481,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Gala Dinner & Hiburan</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Dokumentasi Drone</li>
                             </ul>
-                            <a href="#contact" class="btn btn-outline-dark w-100 rounded-pill fw-bold">Hubungi Kami</a>
+                            <a href="#contact" class="btn btn-outline-dark w-100 rounded-pill fw-bold py-3">Hubungi Kami</a>
                         </div>
                     </div>
                 </div>
@@ -499,11 +524,10 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="card-body p-0 d-flex flex-column">
-                        <div class="text-warning mb-3">
+                        <div class="text-warning mb-3" aria-label="Rating Bintang 5 dari 5">
                             <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
                         </div>
                         <p class="fst-italic small mb-4 flex-grow-1" style="color: var(--text-muted);">"Pengalaman luar biasa! Jeepnya terawat, drivernya gokil abis. Rute Coban Talun bener-bener memacu adrenalin."</p>
-                        
                         <div class="d-flex align-items-center pt-3 border-top">
                             <img src="aset/RinaSuryani.webp" class="rounded-circle me-3" alt="Foto Rina Suryani" width="50" height="50" loading="lazy" style="object-fit: cover;">
                             <div>
@@ -517,11 +541,10 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="card-body p-0 d-flex flex-column">
-                        <div class="text-warning mb-3">
+                         <div class="text-warning mb-3" aria-label="Rating Bintang 5 dari 5">
                             <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
                         </div>
                         <p class="fst-italic small mb-4 flex-grow-1" style="color: var(--text-muted);">"Sangat recommended untuk family gathering. Anak-anak senang, orang tua juga happy. Makanannya enak!"</p>
-                        
                         <div class="d-flex align-items-center pt-3 border-top">
                             <img src="aset/BapakHeru.webp" class="rounded-circle me-3" alt="Foto Bapak Heru" width="50" height="50" loading="lazy" style="object-fit: cover;">
                             <div>
@@ -532,15 +555,13 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4 col-md-6 mx-auto">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="card-body p-0 d-flex flex-column">
-                        <div class="text-warning mb-3">
+                        <div class="text-warning mb-3" aria-label="Rating Bintang 4.5 dari 5">
                              <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-half" aria-hidden="true"></i>
                         </div>
                         <p class="fst-italic small mb-4 flex-grow-1" style="color: var(--text-muted);">"Fasilitator outboundnya sangat komunikatif dan bisa membangkitkan semangat tim kami yang sedang down."</p>
-                        
                         <div class="d-flex align-items-center pt-3 border-top">
                             <img src="aset/DimasAnggara.webp" class="rounded-circle me-3" alt="Foto Dimas Anggara" width="50" height="50" loading="lazy" style="object-fit: cover;">
                             <div>
@@ -565,7 +586,7 @@
                     <div class="accordion accordion-flush shadow-sm rounded-3 overflow-hidden" id="faqAccordion">
                         <div class="accordion-item">
                             <h3 class="accordion-header">
-                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <button class="accordion-button fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                                     Berapa minimal peserta untuk Outbound?
                                 </button>
                             </h3>
@@ -577,7 +598,7 @@
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                                     Apa yang harus dibawa peserta?
                                 </button>
                             </h3>
@@ -589,7 +610,7 @@
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                                     Bagaimana jika hujan turun?
                                 </button>
                             </h3>
@@ -609,8 +630,8 @@
         <div class="container text-center">
             <div class="p-4 p-md-5 border border-secondary rounded-4" style="background: linear-gradient(45deg, #212529, #343a40);">
                 <h2 class="h3 fw-bold mb-3">Butuh Paket Custom?</h2>
-                <p class="text-white mb-4 col-lg-8 mx-auto">Kami siap membantu menyusun <em>itinerary</em> sesuai budget dan preferensi destinasi Anda.</p>
-                <a href="https://wa.me/6281234567890" class="btn btn-outline-light rounded-pill px-4" aria-label="Konsultasi Gratis via WhatsApp">Konsultasi Gratis <i class="bi bi-whatsapp ms-2" aria-hidden="true"></i></a>
+                <p class="text-white mb-4 col-lg-8 mx-auto opacity-100">Kami siap membantu menyusun <em>itinerary</em> sesuai budget dan preferensi destinasi Anda.</p>
+                <a href="https://wa.me/6281234567890" class="btn btn-outline-light rounded-pill px-5 py-3" aria-label="Konsultasi Gratis via WhatsApp">Konsultasi Gratis <i class="bi bi-whatsapp ms-2" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
@@ -624,7 +645,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <article class="card h-100 border-0 shadow-sm card-hover" itemscope itemtype="https://schema.org/Article">
-                        <img src="aset/FunOffroad.webp" class="card-img-top" alt="Tips Offroad" loading="lazy" itemprop="image" width="400" height="250">
+                        <img src="aset/FunOffroad.webp" class="card-img-top" alt="Tips Aman Offroad" loading="lazy" itemprop="image" width="400" height="250">
                         <div class="card-body">
                             <div class="small text-muted mb-2"><i class="bi bi-calendar3" aria-hidden="true"></i> 10 Jan 2024</div>
                             <h3 class="h5 card-title fw-bold" itemprop="headline">5 Tips Aman Offroad bagi Pemula</h3>
@@ -635,7 +656,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <article class="card h-100 border-0 shadow-sm card-hover" itemscope itemtype="https://schema.org/Article">
-                        <img src="aset/AdventureOffroad.webp" class="card-img-top" alt="Lokasi Outbound Batu" loading="lazy" itemprop="image" width="400" height="250">
+                        <img src="aset/AdventureOffroad.webp" class="card-img-top" alt="Pemandangan Lokasi Outbound Batu" loading="lazy" itemprop="image" width="400" height="250">
                         <div class="card-body">
                             <div class="small text-muted mb-2"><i class="bi bi-calendar3" aria-hidden="true"></i> 05 Jan 2024</div>
                             <h3 class="h5 card-title fw-bold" itemprop="headline">Rekomendasi Tempat Outbound</h3>
@@ -646,7 +667,7 @@
                 </div>
                  <div class="col-lg-4 col-md-6 mx-auto">
                     <article class="card h-100 border-0 shadow-sm card-hover" itemscope itemtype="https://schema.org/Article">
-                        <img src="aset/Trackekstremtanjakan.webp" class="card-img-top" alt="Manfaat Team Building Kantor" loading="lazy" itemprop="image" width="400" height="250">
+                        <img src="aset/Trackekstremtanjakan.webp" class="card-img-top" alt="Ilustrasi Manfaat Team Building" loading="lazy" itemprop="image" width="400" height="250">
                         <div class="card-body">
                             <div class="small text-muted mb-2"><i class="bi bi-calendar3" aria-hidden="true"></i> 01 Jan 2024</div>
                             <h3 class="h5 card-title fw-bold" itemprop="headline">Pentingnya Team Building</h3>
@@ -692,7 +713,7 @@
                                 <input type="number" class="form-control" id="inputPeserta" placeholder="Jumlah Peserta" min="1" required>
                                 <label for="inputPeserta">Jumlah Peserta (Orang)</label>
                             </div>
-                            <button type="submit" class="btn btn-success w-100 py-3 fw-bold rounded-3 shadow-sm">
+                            <button type="submit" class="btn btn-success w-100 py-3 fw-bold rounded-3 shadow-sm fs-5">
                                 <i class="bi bi-whatsapp" aria-hidden="true"></i> Kirim Pesanan via WhatsApp
                             </button>
                             <small class="text-muted d-block text-center mt-3">*Admin akan segera merespon ketersediaan jadwal.</small>
@@ -705,14 +726,14 @@
                         <div>
                             <h3 class="h4 fw-bold mb-4">Informasi Kantor</h3>
                             <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
+                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
                                 <div class="ms-3">
                                     <h4 class="h6 fw-bold mb-0">Alamat Basecamp</h4>
                                     <p class="text-muted mb-0">Jl. Raya Oro-Oro Ombo No. 99, Kota Batu, Jawa Timur</p>
                                 </div>
                             </div>
                             <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
+                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none" aria-hidden="true"><i class="bi bi-telephone-fill"></i></div>
                                 <div class="ms-3">
                                     <h4 class="h6 fw-bold mb-0">Telepon / WA</h4>
                                     <p class="text-muted mb-0">+62 812-3456-7890</p>
@@ -721,7 +742,7 @@
                         </div>
                         
                         <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow mt-3">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.6!2d112.5!3d-7.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMDUuNyJTIDExMsKwMzEnMzMuNiJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" title="Lokasi Kantor"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.6!2d112.5!3d-7.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMDUuNyJTIDExMsKwMzEnMzMuNiJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" title="Peta Lokasi Kantor BATU-OFFROAD"></iframe>
                         </div>
                     </div>
                 </div>
@@ -734,43 +755,43 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <h5 class="text-success fw-bold mb-3">BATU-OFFROAD</h5>
-                    <p class="small text-white-50">Partner terbaik Anda untuk kegiatan luar ruang di Kota Wisata Batu. Kami mengutamakan keselamatan, kenyamanan, dan pengalaman tak terlupakan.</p>
+                    <p class="small text-white-50 opacity-100">Partner terbaik Anda untuk kegiatan luar ruang di Kota Wisata Batu. Kami mengutamakan keselamatan, kenyamanan, dan pengalaman tak terlupakan.</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5 class="fw-bold mb-3 h6">Navigasi</h5>
                     <ul class="list-unstyled small">
-                        <li><a href="#hero" class="text-white-50 text-decoration-none hover-white">Beranda</a></li>
-                        <li><a href="#about" class="text-white-50 text-decoration-none hover-white">Tentang Kami</a></li>
-                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Layanan</a></li>
-                        <li><a href="#contact" class="text-white-50 text-decoration-none hover-white">Kontak</a></li>
+                        <li><a href="#hero" class="text-white-50 text-decoration-none hover-white opacity-100">Beranda</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none hover-white opacity-100">Tentang Kami</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white opacity-100">Layanan</a></li>
+                        <li><a href="#contact" class="text-white-50 text-decoration-none hover-white opacity-100">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="fw-bold mb-3 h6">Kontak Cepat</h5>
-                    <p class="small text-white-50 mb-1"><i class="bi bi-whatsapp me-2" aria-hidden="true"></i> 0812-3456-7890</p>
-                    <p class="small text-white-50"><i class="bi bi-envelope me-2" aria-hidden="true"></i> info@batuadventure.com</p>
+                    <p class="small text-white-50 mb-1 opacity-100"><i class="bi bi-whatsapp me-2" aria-hidden="true"></i> 0812-3456-7890</p>
+                    <p class="small text-white-50 opacity-100"><i class="bi bi-envelope me-2" aria-hidden="true"></i> info@batuadventure.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="fw-bold mb-3 h6">Ikuti Kami</h5>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Instagram Kami"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Facebook Kami"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Youtube Kami"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Instagram Kami"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Facebook Kami"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Youtube Kami"><i class="bi bi-youtube" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="border-secondary mt-4 mb-3">
-            <div class="text-center small text-white-50">
+            <div class="text-center small text-white-50 opacity-100">
                 © 2024 BATU-OFFROAD. All Rights Reserved.
             </div>
         </div>
     </footer>
 
     <div class="fab-wrapper">
-        <a href="#" class="btn-fab btn-top" id="btnBackToTop" aria-label="Kembali ke atas">
+        <a href="index.html" class="btn-fab btn-top" id="btnBackToTop" aria-label="Kembali ke atas halaman">
             <i class="bi bi-arrow-up" aria-hidden="true"></i>
         </a>
-        <a href="https://wa.me/6281234567890" class="btn-fab btn-wa" target="_blank" aria-label="Chat via WhatsApp">
+        <a href="https://wa.me/6281234567890" class="btn-fab btn-wa" target="_blank" aria-label="Chat dengan Admin via WhatsApp">
             <i class="bi bi-whatsapp" aria-hidden="true"></i>
         </a>
     </div>
