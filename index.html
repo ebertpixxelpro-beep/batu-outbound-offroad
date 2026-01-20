@@ -89,171 +89,209 @@
         }]
       }
     ]
-    </script>>
+    </script>
 
-<style>
-    /* --- CUSTOM VARIABLES & RESET --- */
-    :root {
-        --primary-color: #198754; 
-        --primary-dark: #146c43;
-        --text-subtitle: #146c43; 
-        --accent-color: #fd7e14;
-        --text-dark: #212529;
-        --text-muted: #495057; 
-        --bg-light: #f8f9fa;
-        --font-main: 'Plus Jakarta Sans', sans-serif;
-        --font-heading: 'Volkhov', serif;
-    }
+    <style>
+        /* --- CUSTOM VARIABLES & RESET --- */
+        :root {
+            --primary-color: #198754; 
+            --primary-dark: #146c43;
+            /* 5. AKSESIBILITAS: Warna subtitle dipergelap agar kontras cukup di background putih */
+            --text-subtitle: #146c43; 
+            --accent-color: #fd7e14;
+            --text-dark: #212529;
+            --text-muted: #495057; /* Dipergelap dari #6c757d agar lolos rasio kontras */
+            --bg-light: #f8f9fa;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Volkhov', serif;
+        }
 
-    body {
-        font-family: var(--font-main);
-        color: var(--text-dark);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    h1, h2, h3, h4, h5 {
-        font-family: var(--font-heading);
-        font-weight: 700;
-    }
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
 
-    /* --- UTILITIES & ACCESSIBILITY --- */
-    .section-padding { padding: 80px 0; }
-    
-    /* Fokus Indikator untuk Navigasi Keyboard */
-    a:focus, button:focus {
-        outline: 3px solid var(--accent-color);
-        outline-offset: 2px;
-    }
+        /* --- UTILITIES --- */
+        .section-padding { padding: 80px 0; }
+        @media (max-width: 768px) {
+            .section-padding { padding: 50px 0; }
+        }
 
-    /* High Contrast Helper */
-    .text-white-high-contrast {
-        color: #ffffff !important;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    }
+        /* 6. AKSESIBILITAS: Fokus Indikator untuk Navigasi Keyboard */
+        a:focus, button:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
 
-    /* Section Headers */
-    .section-header { margin-bottom: 3rem; text-align: center; }
-    .section-header .subtitle {
-        display: block;
-        color: var(--text-subtitle);
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-    }
-    .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .section-header .subtitle {
+            display: block;
+            color: var(--text-subtitle); /* Fix Contrast Issue */
+            font-weight: 700; /* Ditebalkan agar lebih terbaca */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .section-header h2 { font-size: 1.8rem; }
+        }
 
-    /* --- NAVBAR --- */
-    .navbar {
-        padding: 0.8rem 0;
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        /* Optimasi render blocking */
-        contain: layout; 
-    }
-    .nav-link {
-        font-weight: 600;
-        color: var(--text-dark) !important;
-        margin: 0 5px;
-        padding: 12px 10px !important;
-        transition: color 0.3s;
-    }
-    .nav-link:hover, .nav-link.active { color: var(--primary-color) !important; }
+        /* --- NAVBAR --- */
+        .navbar {
+            padding: 0.8rem 0;
+            background: rgba(255, 255, 255, 0.98); /* Sedikit lebih solid untuk performa paint */
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        /* 7. AKSESIBILITAS: Target Sentuh Mobile (48px) */
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark) !important;
+            margin: 0 5px;
+            padding: 12px 10px !important; /* Menambah area sentuh */
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
 
-    /* --- HERO SECTION (Optimasi LCP) --- */
-    .hero {
-        position: relative;
-        background-color: #333; 
-        /* Gambar LCP di-set di sini */
-        background-image: url('aset/mobol.webp');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
-        height: 100dvh; 
-        min-height: 600px;
-        display: flex;
-        align-items: center;
-        background-attachment: scroll; 
-    }
-    
-    .hero-overlay {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, rgba(25, 135, 84, 0.9) 100%);
-    }
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            background-color: #333; /* Fallback color sebelum gambar load */
+            background-image: url('aset/mobol.webp');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            height: 100dvh; 
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            /* Matikan fixed background di mobile total untuk performa scrolling */
+            background-attachment: scroll; 
+        }
+        
+        /* Media query desktop only untuk parallax */
+        @media (min-width: 992px) {
+            .hero { background-attachment: fixed; }
+        }
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        /* Hapus opacity:0 awal agar LCP terbaca lebih cepat oleh bot */
-        animation: simpleFade 0.8s ease-out forwards;
-    }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Gradient dipergelap sedikit agar teks putih pasti kontras (Accessibility) */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, rgba(25, 135, 84, 0.9) 100%);
+        }
 
-    @keyframes simpleFade {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            /* Hapus animasi fadeInUp yang kompleks jika ingin LCP 100%, tapi kita simpan simple fade */
+            opacity: 0;
+            animation: simpleFade 0.8s ease-out forwards;
+        }
 
-    /* --- CARDS & INTERACTION --- */
-    .card-hover {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        border: none;
-        border-radius: 12px;
-        overflow: hidden;
-        /* GPU Acceleration hint */
-        will-change: transform; 
-    }
-    .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    }
-    
-    .icon-box {
-        width: 70px; height: 70px;
-        background: rgba(25, 135, 84, 0.1);
-        color: var(--primary-color);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
+        @keyframes simpleFade {
+            to { opacity: 1; }
+        }
 
-    /* --- FAB BUTTONS --- */
-    .fab-wrapper {
-        position: fixed; bottom: 25px; right: 25px; z-index: 999;
-        display: flex; flex-direction: column; gap: 15px;
-    }
-    .btn-fab {
-        width: 55px; height: 55px;
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        color: white; 
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        text-decoration: none;
-        transition: transform 0.2s;
-    }
-    .btn-fab:hover { transform: scale(1.1); color: white; }
-    .btn-wa { background: #25D366; }
-    .btn-top { background: var(--primary-color); opacity: 0; visibility: hidden; transition: 0.3s; }
-    .btn-top.show { opacity: 1; visibility: visible; }
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 60px;
+                background-position: 50% 100%; /* Anchor gambar ke bawah */
+            }
+            .hero h1 { 
+                font-size: 2.2rem !important; 
+                line-height: 1.2;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Perkuat shadow untuk kontras */
+            }
+            .hero p.lead { 
+                font-size: 1.1rem !important; 
+                color: #ffffff !important; /* Pastikan putih solid */
+                opacity: 1 !important;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px !important;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                padding: 14px 0; /* Target sentuh */
+                font-size: 1.1rem;
+            }
+        }
 
-    /* --- RESPONSIVE --- */
-    @media (min-width: 992px) {
-        .hero { background-attachment: fixed; }
-    }
-    @media (max-width: 768px) {
-        .section-padding { padding: 50px 0; }
-        .section-header h2 { font-size: 1.8rem; }
-        .hero { padding-top: 60px; background-position: 50% 100%; }
-        .hero h1 { font-size: 2.2rem !important; }
-        .hero-buttons { flex-direction: column; gap: 15px !important; }
-        .hero-buttons .btn { width: 100%; }
-    }
+        /* --- CARDS --- */
+        .card-hover {
+            transition: transform 0.2s ease; /* Percepat durasi animasi untuk responsivitas */
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        /* Hapus shadow berat pada hover untuk performa repainting */
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        
+        .icon-box {
+            width: 70px; height: 70px;
+            background: rgba(25, 135, 84, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
 
-    img { max-width: 100%; height: auto; }
-</style>
+        /* --- FOOTER & LINKS --- */
+        footer a.hover-white:hover { color: white !important; }
+        /* Target sentuh footer */
+        footer ul li a {
+            display: inline-block;
+            padding: 8px 0; 
+        }
+
+        /* --- FAB --- */
+        .fab-wrapper {
+            position: fixed; bottom: 25px; right: 25px; z-index: 999;
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .btn-fab {
+            width: 55px; height: 55px; /* Perbesar target sentuh */
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-decoration: none;
+        }
+        .btn-wa { background: #25D366; }
+        .btn-top { background: var(--primary-color); opacity: 0; visibility: hidden; transition: 0.3s; }
+        .btn-top.show { opacity: 1; visibility: visible; }
+
+        img { max-width: 100%; height: auto; }
+        
+        /* Helper untuk Kontras Tinggi (Accessibility) */
+        .text-white-high-contrast {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
 
@@ -262,7 +300,7 @@
             <a class="navbar-brand fw-bold fs-4 text-success" href="#">
                 <i class="bi bi-tree-fill" aria-hidden="true"></i> BATU-OFFROAD
             </a>
-            <button class="navbar-toggler border-0 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
@@ -274,7 +312,7 @@
                     <li class="nav-item"><a class="nav-link" href="#gallery">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="#news">Berita</a></li>
                 </ul>
-                <a href="#contact" class="btn btn-success rounded-pill px-4 fw-bold ms-lg-3 shadow-sm py-3 py-lg-2">
+                <a href="#contact" class="btn btn-success rounded-pill px-4 fw-bold ms-lg-3 shadow-sm py-2">
                     Booking <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
             </div>
@@ -290,9 +328,9 @@
                     <i class="bi bi-trophy-fill me-1" aria-hidden="true"></i> #1 Di Kota Batu
                 </span>
 
-                <h1 class="mb-3 text-white fw-bolder">Jelajahi Alam Kota Batu dengan Sensasi Berbeda</h1>
+                <h1 class="mb-3 text-white">Jelajahi Alam Kota Batu dengan Sensasi Berbeda</h1>
                 
-                <p class="lead mb-5 text-white fw-medium opacity-100">
+                <p class="lead mb-5 text-white fw-medium">
                     Spesialis Outbound Training, Fun Offroad Jeep, dan Wisata Petualangan untuk Corporate & Keluarga.
                 </p>
 
@@ -315,7 +353,7 @@
             <div class="row align-items-center gx-lg-5">
                 <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2">
                     <div class="position-relative">
-                        <img src="aset/Pemandanganpuncakgunung.webp" alt="Tim Outbound Batu sedang beraktivitas di gunung" class="img-fluid rounded-4 shadow" width="600" height="450" loading="lazy">
+                        <img src="aset/Pemandanganpuncakgunung.webp" alt="Tim Outbound Batu sedang beraktivitas" class="img-fluid rounded-4 shadow" width="600" height="450" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -389,8 +427,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="fw-bold mb-3">Rencanakan Gathering Kantor Anda Sekarang!</h2>
-                    <p class="mb-4 fs-5 text-white opacity-100">Dapatkan penawaran harga spesial untuk rombongan minimal 30 pax. Konsultasi gratis jadwal dan rundown.</p>
-                    <a href="https://wa.me/6281234567890" class="btn btn-warning btn-lg rounded-pill fw-bold shadow text-dark py-3 px-5">Chat WhatsApp Admin</a>
+                    <p class="mb-4 fs-5 text-white">Dapatkan penawaran harga spesial untuk rombongan minimal 30 pax. Konsultasi gratis jadwal dan rundown.</p>
+                    <a href="https://wa.me/6281234567890" class="btn btn-warning btn-lg rounded-pill fw-bold shadow text-dark">Chat WhatsApp Admin</a>
                 </div>
             </div>
         </div>
@@ -418,7 +456,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Tiket Masuk Wisata</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Dokumentasi Standar</li>
                             </ul>
-                            <a href="#contact" class="btn btn-outline-success w-100 rounded-pill fw-bold py-3">Pilih Paket</a>
+                            <a href="#contact" class="btn btn-outline-success w-100 rounded-pill fw-bold">Pilih Paket</a>
                         </div>
                     </div>
                 </div>
@@ -439,7 +477,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Coffee Break 1x</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Trainer & Fasilitator</li>
                             </ul>
-                            <a href="#contact" class="btn btn-success w-100 rounded-pill fw-bold shadow py-3">Pilih Paket</a>
+                            <a href="#contact" class="btn btn-success w-100 rounded-pill fw-bold shadow">Pilih Paket</a>
                         </div>
                     </div>
                 </div>
@@ -458,7 +496,7 @@
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Gala Dinner & Hiburan</li>
                                 <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>Dokumentasi Drone</li>
                             </ul>
-                            <a href="#contact" class="btn btn-outline-dark w-100 rounded-pill fw-bold py-3">Hubungi Kami</a>
+                            <a href="#contact" class="btn btn-outline-dark w-100 rounded-pill fw-bold">Hubungi Kami</a>
                         </div>
                     </div>
                 </div>
@@ -501,10 +539,11 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="card-body p-0 d-flex flex-column">
-                        <div class="text-warning mb-3" aria-label="Rating Bintang 5 dari 5">
+                        <div class="text-warning mb-3">
                             <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
                         </div>
                         <p class="fst-italic small mb-4 flex-grow-1" style="color: var(--text-muted);">"Pengalaman luar biasa! Jeepnya terawat, drivernya gokil abis. Rute Coban Talun bener-bener memacu adrenalin."</p>
+                        
                         <div class="d-flex align-items-center pt-3 border-top">
                             <img src="aset/RinaSuryani.webp" class="rounded-circle me-3" alt="Foto Rina Suryani" width="50" height="50" loading="lazy" style="object-fit: cover;">
                             <div>
@@ -518,10 +557,11 @@
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="card-body p-0 d-flex flex-column">
-                         <div class="text-warning mb-3" aria-label="Rating Bintang 5 dari 5">
+                        <div class="text-warning mb-3">
                             <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
                         </div>
                         <p class="fst-italic small mb-4 flex-grow-1" style="color: var(--text-muted);">"Sangat recommended untuk family gathering. Anak-anak senang, orang tua juga happy. Makanannya enak!"</p>
+                        
                         <div class="d-flex align-items-center pt-3 border-top">
                             <img src="aset/BapakHeru.webp" class="rounded-circle me-3" alt="Foto Bapak Heru" width="50" height="50" loading="lazy" style="object-fit: cover;">
                             <div>
@@ -532,13 +572,15 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 col-md-6 mx-auto">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <div class="card-body p-0 d-flex flex-column">
-                        <div class="text-warning mb-3" aria-label="Rating Bintang 4.5 dari 5">
+                        <div class="text-warning mb-3">
                              <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-half" aria-hidden="true"></i>
                         </div>
                         <p class="fst-italic small mb-4 flex-grow-1" style="color: var(--text-muted);">"Fasilitator outboundnya sangat komunikatif dan bisa membangkitkan semangat tim kami yang sedang down."</p>
+                        
                         <div class="d-flex align-items-center pt-3 border-top">
                             <img src="aset/DimasAnggara.webp" class="rounded-circle me-3" alt="Foto Dimas Anggara" width="50" height="50" loading="lazy" style="object-fit: cover;">
                             <div>
@@ -563,7 +605,7 @@
                     <div class="accordion accordion-flush shadow-sm rounded-3 overflow-hidden" id="faqAccordion">
                         <div class="accordion-item">
                             <h3 class="accordion-header">
-                                <button class="accordion-button fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                                     Berapa minimal peserta untuk Outbound?
                                 </button>
                             </h3>
@@ -575,7 +617,7 @@
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                                     Apa yang harus dibawa peserta?
                                 </button>
                             </h3>
@@ -587,7 +629,7 @@
                         </div>
                         <div class="accordion-item">
                             <h3 class="accordion-header">
-                                <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                                     Bagaimana jika hujan turun?
                                 </button>
                             </h3>
@@ -607,8 +649,8 @@
         <div class="container text-center">
             <div class="p-4 p-md-5 border border-secondary rounded-4" style="background: linear-gradient(45deg, #212529, #343a40);">
                 <h2 class="h3 fw-bold mb-3">Butuh Paket Custom?</h2>
-                <p class="text-white mb-4 col-lg-8 mx-auto opacity-100">Kami siap membantu menyusun <em>itinerary</em> sesuai budget dan preferensi destinasi Anda.</p>
-                <a href="https://wa.me/6281234567890" class="btn btn-outline-light rounded-pill px-5 py-3" aria-label="Konsultasi Gratis via WhatsApp">Konsultasi Gratis <i class="bi bi-whatsapp ms-2" aria-hidden="true"></i></a>
+                <p class="text-white mb-4 col-lg-8 mx-auto">Kami siap membantu menyusun <em>itinerary</em> sesuai budget dan preferensi destinasi Anda.</p>
+                <a href="https://wa.me/6281234567890" class="btn btn-outline-light rounded-pill px-4" aria-label="Konsultasi Gratis via WhatsApp">Konsultasi Gratis <i class="bi bi-whatsapp ms-2" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
@@ -622,7 +664,7 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <article class="card h-100 border-0 shadow-sm card-hover" itemscope itemtype="https://schema.org/Article">
-                        <img src="aset/FunOffroad.webp" class="card-img-top" alt="Tips Aman Offroad" loading="lazy" itemprop="image" width="400" height="250">
+                        <img src="aset/FunOffroad.webp" class="card-img-top" alt="Tips Offroad" loading="lazy" itemprop="image" width="400" height="250">
                         <div class="card-body">
                             <div class="small text-muted mb-2"><i class="bi bi-calendar3" aria-hidden="true"></i> 10 Jan 2024</div>
                             <h3 class="h5 card-title fw-bold" itemprop="headline">5 Tips Aman Offroad bagi Pemula</h3>
@@ -633,7 +675,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <article class="card h-100 border-0 shadow-sm card-hover" itemscope itemtype="https://schema.org/Article">
-                        <img src="aset/AdventureOffroad.webp" class="card-img-top" alt="Pemandangan Lokasi Outbound Batu" loading="lazy" itemprop="image" width="400" height="250">
+                        <img src="aset/AdventureOffroad.webp" class="card-img-top" alt="Lokasi Outbound Batu" loading="lazy" itemprop="image" width="400" height="250">
                         <div class="card-body">
                             <div class="small text-muted mb-2"><i class="bi bi-calendar3" aria-hidden="true"></i> 05 Jan 2024</div>
                             <h3 class="h5 card-title fw-bold" itemprop="headline">Rekomendasi Tempat Outbound</h3>
@@ -644,7 +686,7 @@
                 </div>
                  <div class="col-lg-4 col-md-6 mx-auto">
                     <article class="card h-100 border-0 shadow-sm card-hover" itemscope itemtype="https://schema.org/Article">
-                        <img src="aset/Trackekstremtanjakan.webp" class="card-img-top" alt="Ilustrasi Manfaat Team Building" loading="lazy" itemprop="image" width="400" height="250">
+                        <img src="aset/Trackekstremtanjakan.webp" class="card-img-top" alt="Manfaat Team Building Kantor" loading="lazy" itemprop="image" width="400" height="250">
                         <div class="card-body">
                             <div class="small text-muted mb-2"><i class="bi bi-calendar3" aria-hidden="true"></i> 01 Jan 2024</div>
                             <h3 class="h5 card-title fw-bold" itemprop="headline">Pentingnya Team Building</h3>
@@ -690,7 +732,7 @@
                                 <input type="number" class="form-control" id="inputPeserta" placeholder="Jumlah Peserta" min="1" required>
                                 <label for="inputPeserta">Jumlah Peserta (Orang)</label>
                             </div>
-                            <button type="submit" class="btn btn-success w-100 py-3 fw-bold rounded-3 shadow-sm fs-5">
+                            <button type="submit" class="btn btn-success w-100 py-3 fw-bold rounded-3 shadow-sm">
                                 <i class="bi bi-whatsapp" aria-hidden="true"></i> Kirim Pesanan via WhatsApp
                             </button>
                             <small class="text-muted d-block text-center mt-3">*Admin akan segera merespon ketersediaan jadwal.</small>
@@ -703,14 +745,14 @@
                         <div>
                             <h3 class="h4 fw-bold mb-4">Informasi Kantor</h3>
                             <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i></div>
                                 <div class="ms-3">
                                     <h4 class="h6 fw-bold mb-0">Alamat Basecamp</h4>
                                     <p class="text-muted mb-0">Jl. Raya Oro-Oro Ombo No. 99, Kota Batu, Jawa Timur</p>
                                 </div>
                             </div>
                             <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none" aria-hidden="true"><i class="bi bi-telephone-fill"></i></div>
+                                <div class="flex-shrink-0 btn btn-success rounded-circle pe-none"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
                                 <div class="ms-3">
                                     <h4 class="h6 fw-bold mb-0">Telepon / WA</h4>
                                     <p class="text-muted mb-0">+62 812-3456-7890</p>
@@ -719,7 +761,7 @@
                         </div>
                         
                         <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow mt-3">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.6!2d112.5!3d-7.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMDUuNyJTIDExMsKwMzEnMzMuNiJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" title="Peta Lokasi Kantor BATU-OFFROAD"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.6!2d112.5!3d-7.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMDUuNyJTIDExMsKwMzEnMzMuNiJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" title="Lokasi Kantor"></iframe>
                         </div>
                     </div>
                 </div>
@@ -732,51 +774,46 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <h5 class="text-success fw-bold mb-3">BATU-OFFROAD</h5>
-                    <p class="small text-white-50 opacity-100">Partner terbaik Anda untuk kegiatan luar ruang di Kota Wisata Batu. Kami mengutamakan keselamatan, kenyamanan, dan pengalaman tak terlupakan.</p>
+                    <p class="small text-white-50">Partner terbaik Anda untuk kegiatan luar ruang di Kota Wisata Batu. Kami mengutamakan keselamatan, kenyamanan, dan pengalaman tak terlupakan.</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5 class="fw-bold mb-3 h6">Navigasi</h5>
                     <ul class="list-unstyled small">
-                        <li><a href="#hero" class="text-white-50 text-decoration-none hover-white opacity-100">Beranda</a></li>
-                        <li><a href="#about" class="text-white-50 text-decoration-none hover-white opacity-100">Tentang Kami</a></li>
-                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white opacity-100">Layanan</a></li>
-                        <li><a href="#contact" class="text-white-50 text-decoration-none hover-white opacity-100">Kontak</a></li>
+                        <li><a href="#hero" class="text-white-50 text-decoration-none hover-white">Beranda</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none hover-white">Tentang Kami</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Layanan</a></li>
+                        <li><a href="#contact" class="text-white-50 text-decoration-none hover-white">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="fw-bold mb-3 h6">Kontak Cepat</h5>
-                    <p class="small text-white-50 mb-1 opacity-100"><i class="bi bi-whatsapp me-2" aria-hidden="true"></i> 0812-3456-7890</p>
-                    <p class="small text-white-50 opacity-100"><i class="bi bi-envelope me-2" aria-hidden="true"></i> info@batuadventure.com</p>
+                    <p class="small text-white-50 mb-1"><i class="bi bi-whatsapp me-2" aria-hidden="true"></i> 0812-3456-7890</p>
+                    <p class="small text-white-50"><i class="bi bi-envelope me-2" aria-hidden="true"></i> info@batuadventure.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="fw-bold mb-3 h6">Ikuti Kami</h5>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Instagram Kami"><i class="bi bi-instagram" aria-hidden="true"></i></a>
-                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Facebook Kami"><i class="bi bi-facebook" aria-hidden="true"></i></a>
-                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Youtube Kami"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Instagram Kami"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Facebook Kami"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white fs-5" aria-label="Kunjungi Youtube Kami"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
             </div>
             <hr class="border-secondary mt-4 mb-3">
-            <div class="text-center small text-white-50 opacity-100">
+            <div class="text-center small text-white-50">
                 © 2024 BATU-OFFROAD. All Rights Reserved.
             </div>
         </div>
     </footer>
 
-<div class="fab-wrapper">
-    <a href="#hero" class="btn-fab btn-top" id="btnBackToTop" aria-label="Kembali ke atas">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
-        </svg>
-    </a>
-    
-    <a href="https://wa.me/6281234567890" class="btn-fab btn-wa" target="_blank" aria-label="Chat via WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
-</div>
+    <div class="fab-wrapper">
+        <a href="#" class="btn-fab btn-top" id="btnBackToTop" aria-label="Kembali ke atas">
+            <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/6281234567890" class="btn-fab btn-wa" target="_blank" aria-label="Chat via WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        </a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
