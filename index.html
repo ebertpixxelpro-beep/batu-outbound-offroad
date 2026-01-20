@@ -129,35 +129,73 @@
             color: var(--primary-color) !important;
         }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            background: url('aset/mobol.webp') no-repeat center center/cover;
-            height: 100vh; /* Full Height */
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7));
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem !important; }
-        }
+/* --- HERO SECTION UPDATES --- */
+.hero {
+    position: relative;
+    background: url('aset/mobol.webp') no-repeat center center/cover;
+    /* Gunakan dvh agar tidak tertutup address bar browser HP */
+    height: 100dvh; 
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    /* Efek Parallax sederhana untuk kesan premium */
+    background-attachment: fixed; 
+}
 
-        /* --- CARDS & INTERACTIONS --- */
+/* Overlay yang lebih dramatis agar teks putih terbaca jelas */
+.hero-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 50%, rgba(25, 135, 84, 0.8) 100%);
+}
+
+/* Animasi Masuk (Fade In Up) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* --- MOBILE SPECIFIC TWEAKS (Max Width 768px) --- */
+@media (max-width: 768px) {
+    .hero {
+        /* Matikan fixed background di mobile untuk performa scroll lebih mulus */
+        background-attachment: scroll; 
+        background-position: center bottom; /* Fokus gambar ke bawah (biasanya objek ada di bawah) */
+        padding-top: 60px; /* Kompensasi navbar */
+    }
+
+    .hero h1 { 
+        font-size: 2.5rem !important; /* Ukuran font judul di mobile */
+        font-weight: 800;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        margin-bottom: 1rem !important;
+    }
+
+    .hero p.lead { 
+        font-size: 1.1rem !important; 
+        line-height: 1.5;
+        opacity: 1; /* Buat teks deskripsi lebih terang */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        margin-bottom: 2rem !important;
+    }
+
+    /* Tombol ditumpuk (Stack) agar mudah diklik jempol */
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px !important;
+    }
+
+    .hero-buttons .btn {
+        width: 100%; /* Tombol lebar penuh */
+        padding: 15px 0; /* Area sentuh lebih luas */
+        font-size: 1.1rem;
+    }
+}
+
+/* --- CARDS & INTERACTIONS --- */
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
@@ -242,23 +280,33 @@
         </div>
     </nav>
 
-    <header id="hero" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content text-center">
-            <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-10">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">#1 Di Kota Batu</span>
-                    <h1 class="mb-4">Jelajahi Alam Kota Batu dengan Sensasi Berbeda</h1>
-                    <p class="lead mb-5 opacity-90">Spesialis Outbound Training, Fun Offroad Jeep, dan Wisata Petualangan untuk Corporate & Keluarga.</p>
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="#products" class="btn btn-success btn-lg rounded-pill px-4 py-3 fw-bold shadow">Lihat Paket</a>
-                        <a href="https://wa.me/6281234567890" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-bold">Hubungi Kami</a>
-                    </div>
+<header id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-md-10 px-4"> <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase shadow-sm">
+                    <i class="bi bi-trophy-fill me-1"></i> #1 Di Kota Batu
+                </span>
+
+                <h1 class="mb-3 text-white">Jelajahi Alam Kota Batu dengan Sensasi Berbeda</h1>
+                
+                <p class="lead mb-5 text-white">
+                    Spesialis Outbound Training, Fun Offroad Jeep, dan Wisata Petualangan untuk Corporate & Keluarga.
+                </p>
+
+                <div class="d-flex justify-content-center gap-3 hero-buttons">
+                    <a href="#products" class="btn btn-success btn-lg rounded-pill px-5 fw-bold shadow hover-scale">
+                        Lihat Paket
+                    </a>
+                    <a href="https://wa.me/6281234567890" class="btn btn-outline-light btn-lg rounded-pill px-5 fw-bold hover-scale">
+                        <i class="bi bi-whatsapp me-2"></i> Hubungi Kami
+                    </a>
                 </div>
+
             </div>
         </div>
-    </header>
-
+    </div>
+</header>
     <section id="about" class="section-padding">
         <div class="container">
             <div class="row align-items-center gx-lg-5">
