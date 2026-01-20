@@ -1,0 +1,14 @@
+# Robots.txt untuk https://batu-outbound-offroad.vercel.app/
+# Dibuat oleh SEO Specialist
+
+User-agent: *
+Allow: /
+Allow: /aset/
+Allow: /assets/
+
+# Disallow file sistem atau konfigurasi jika ada (opsional untuk vercel)
+Disallow: /_next/
+Disallow: /cdn-cgi/
+
+# Peta Situs (Wajib dibuat untuk SEO)
+Sitemap: https://batu-outbound-offroad.vercel.app/sitemap.xml
